@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <title>Weather App Project JavaScript | CodingNepal</title>
-    <link rel="stylesheet" href="indexStyle.css">
+    <link rel="stylesheet" href="css/indexStyle.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
@@ -17,7 +17,6 @@
         <button class="search-btn">Search</button>
         <div class="separator"></div>
         <button class="location-btn">Use Current Location</button>
-
     </div>
     <div class="weather-data">
         <!-- Additional content for displaying real-time weather data -->
@@ -40,113 +39,14 @@
         <div class="days-forecast">
             <h2>14-Day Forecast</h2>
             <ul class="weather-cards">
-                <li class="card">
-                    <h3>( DATA )</h3>
-                    <h6>Temp: __C</h6>
-                    <h6>Wind: __ M/S</h6>
-                    <h6>Humidity: __%</h6>
-                </li>
-                <li class="card">
-                    <h3>( DATA )</h3>
-                    <h6>Temp: __C</h6>
-                    <h6>Wind: __ M/S</h6>
-                    <h6>Humidity: __%</h6>
-                </li>
-                <li class="card">
-                    <h3>( DATA )</h3>
-                    <h6>Temp: __C</h6>
-                    <h6>Wind: __ M/S</h6>
-                    <h6>Humidity: __%</h6>
-                </li>
-                <li class="card">
-                    <h3>( DATA )</h3>
-                    <h6>Temp: __C</h6>
-                    <h6>Wind: __ M/S</h6>
-                    <h6>Humidity: __%</h6>
-                </li>
-                <li class="card">
-                    <h3>( DATA )</h3>
-                    <h6>Temp: __C</h6>
-                    <h6>Wind: __ M/S</h6>
-                    <h6>Humidity: __%</h6>
-                </li>
-                <li class="card">
-                    <h3>( DATA )</h3>
-                    <h6>Temp: __C</h6>
-                    <h6>Wind: __ M/S</h6>
-                    <h6>Humidity: __%</h6>
-                </li>
-                <li class="card">
-                    <h3>( DATA )</h3>
-                    <h6>Temp: __C</h6>
-                    <h6>Wind: __ M/S</h6>
-                    <h6>Humidity: __%</h6>
-                </li>
-                <li class="card">
-                    <h3>( DATA )</h3>
-                    <h6>Temp: __C</h6>
-                    <h6>Wind: __ M/S</h6>
-                    <h6>Humidity: __%</h6>
-                </li>
-                <li class="card">
-                    <h3>( DATA )</h3>
-                    <h6>Temp: __C</h6>
-                    <h6>Wind: __ M/S</h6>
-                    <h6>Humidity: __%</h6>
-                </li>
-                <li class="card">
-                    <h3>( DATA )</h3>
-                    <h6>Temp: __C</h6>
-                    <h6>Wind: __ M/S</h6>
-                    <h6>Humidity: __%</h6>
-                </li>
-                <li class="card">
-                    <h3>( DATA )</h3>
-                    <h6>Temp: __C</h6>
-                    <h6>Wind: __ M/S</h6>
-                    <h6>Humidity: __%</h6>
-                </li>
-                <li class="card">
-                    <h3>( DATA )</h3>
-                    <h6>Temp: __C</h6>
-                    <h6>Wind: __ M/S</h6>
-                    <h6>Humidity: __%</h6>
-                </li>
-                <li class="card">
-                    <h3>( DATA )</h3>
-                    <h6>Temp: __C</h6>
-                    <h6>Wind: __ M/S</h6>
-                    <h6>Humidity: __%</h6>
-                </li>
-                <li class="card">
-                    <h3>( DATA )</h3>
-                    <h6>Temp: __C</h6>
-                    <h6>Wind: __ M/S</h6>
-                    <h6>Humidity: __%</h6>
-                </li>
+                <!-- Weather forecast cards will be dynamically populated here -->
             </ul>
         </div>
     </div>
 </div>
 
-
-<script>
-    // Placeholder functions for API integration (to be implemented later)
-    function searchWeather() {
-        // Logic to fetch and display real-time weather data
-    }
-
-    function useCurrentLocation() {
-        // Logic to use the current location and fetch weather data
-    }
-
-    // Placeholder for populating 14-day forecast (to be implemented later)
-    function populateForecast() {
-        // Logic to fetch and populate 5-day forecast
-    }
-
-    // Call the function to populate forecast when the page loads
-    populateForecast();
-</script>
+<script type="module" src="js/main.js" defer></script>
+<script type="module" src="js/geocoding.js" defer></script>
+<script type="module" src="js/weather.js" defer></script>
 </body>
 </html>
