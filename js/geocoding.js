@@ -1,6 +1,6 @@
 // Function to perform geocoding based on city name
 export async function geocodeCity(cityName) {
-    const apiKey = '4a444ce98b768f820d1b3bb1c1c0b525';
+    const apiKey = 'geoCoding API key';
     const apiUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=5&appid=${apiKey}`;
 
     try {

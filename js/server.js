@@ -35,7 +35,7 @@ app.listen(port, () => {
 // Function to fetch current weather data
 async function fetchCurrentWeather(lat, lon) {
     // Replace 'your_openweather_api_key' with your actual OpenWeather API key
-    const apiKey = '1660304cf8f18234262dfa8dbcbf9671';
+    const apiKey = 'OW API KEY';
     const apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}`;
 
     try {
@@ -56,7 +56,7 @@ async function fetchCurrentWeather(lat, lon) {
 
 // Function to fetch 14-day weather forecast data
 async function fetchWeatherForecast(lat, lon) {
-    const apiKey = '1660304cf8f18234262dfa8dbcbf9671';
+    const apiKey = 'OW API KEY';
     const apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=current,minutely,hourly,alerts&appid=${apiKey}`;
 
     try {

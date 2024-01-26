@@ -22,7 +22,7 @@ export async function fetchWeatherForecast(lat, lon) {
     // Implement logic to fetch 14-day forecast from OpenWeather API
     // Use the provided API key for authentication
 
-    const apiKey = '1660304cf8f18234262dfa8dbcbf9671';
+    const apiKey = 'API Key';
     const apiUrl = `https://api.openweathermap.org/data/2.5/forecast/daily?lat=${lat}&lon=${lon}&cnt=14&appid=${apiKey}`;
 
     try {
