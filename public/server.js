@@ -31,7 +31,7 @@ app.post('/weather', async (req, res) => {
 app.post('/weatherByCoords', async (req, res) => {
     const { lat, lon } = req.body;
     try {
-        const weatherResponse = await axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}`);
+        const weatherResponse = await axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`);
         res.json(formatWeatherData(weatherResponse.data));
     } catch (error) {
         console.error('Error:', error.message);

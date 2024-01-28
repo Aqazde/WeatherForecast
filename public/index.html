@@ -121,7 +121,7 @@
                 windSpeedElement.innerText = `${data.windSpeed} M/S`;
                 humidityElement.innerText = `${data.humidity}%`;
                 pressureElement.innerText = `${data.pressure} hPa`;
-
+                rainVolumeElement.innerText = `${data.rainVolume} millimeter`;
             } catch (error) {
                 console.error(error);
                 alert(`Error: ${error.message}`);
@@ -160,12 +160,13 @@
                 }
                 // Update UI with received weather data
                 cityNameElement.innerText = data.cityName;
-                weatherDescriptionElement.innerText = data.description;
+                weatherDescriptionElement.innerText = data.main;
                 temperatureElement.innerText = `${data.temperature}°C`;
                 feelsLikeElement.innerText = `${data.feelsLike}°C`;
                 windSpeedElement.innerText = `${data.windSpeed} M/S`;
                 humidityElement.innerText = `${data.humidity}%`;
                 pressureElement.innerText = `${data.pressure} hPa`;
+                rainVolumeElement.innerText = `${data.rainVolume} millimeter`;
             } catch (error) {
                 console.error(error);
                 alert(`Error: ${error.message}`);
