@@ -19,7 +19,7 @@ app.get('/', (req, res) => {
 app.post('/weather', async (req, res) => {
     const cityName = req.body.cityName;
     try {
-        const weatherResponse = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}`);
+        const weatherResponse = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&appid=${apiKey}`);
         res.json(formatWeatherData(weatherResponse.data));
     } catch (error) {
         console.error('Error:', error.message);
@@ -43,6 +43,7 @@ app.post('/weatherByCoords', async (req, res) => {
 function formatWeatherData(data) {
     return {
         cityName: data.name,
+        description: data.weather[0].main,
         temperature: data.main.temp,
         feelsLike: data.main.feels_like,
         humidity: data.main.humidity,

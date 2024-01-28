@@ -27,9 +27,9 @@
         <!-- Additional content for displaying real-time weather data -->
         <div class="current-weather">
             <div class="details">
-                <h2 id="city-name">City Name</h2>
-                <h6 id="weather-description">Weather Description</h6>
-                <h3>Temperature: <span id="temperature">__°C</span></h3>
+                <h1>City: <span id="city-name">City Name</span></h1>
+                <h2>Today's weather: <span id="weather-description">Weather Description</span></h2>
+                <h6>Temperature: <span id="temperature">__°C</span></h6>
                 <h6>Feels-Like Temperature: <span id="feels-like">__°C</span></h6>
                 <h6>Wind Speed: <span id="wind-speed">__ M/S</span></h6>
                 <h6>Humidity: <span id="humidity">__%</span></h6>
@@ -160,7 +160,7 @@
                 }
                 // Update UI with received weather data
                 cityNameElement.innerText = data.cityName;
-                weatherDescriptionElement.innerText = data.main;
+                weatherDescriptionElement.innerText = data.description;
                 temperatureElement.innerText = `${data.temperature}°C`;
                 feelsLikeElement.innerText = `${data.feelsLike}°C`;
                 windSpeedElement.innerText = `${data.windSpeed} M/S`;
