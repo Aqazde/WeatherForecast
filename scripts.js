@@ -10,7 +10,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const pressureElement = document.getElementById('pressure');
     const rainVolumeElement = document.getElementById('rain-volume');
     const iconElement = document.querySelector('.icon img');
-
+    // Initialize the map
+    const map = L.map('map').setView([51.505, -0.09], 13);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '© OpenStreetMap contributors'
+    }).addTo(map);
+    // Define a variable to hold the marker
+    let marker;
     // Function to display weather data in the console
     function displayWeatherData(data) {
         console.log("Received Weather Data:");
@@ -22,6 +29,13 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log("Rain Volume:", data.rainVolume);
         console.log("Temperature:", data.temperature);
         console.log("Wind Speed:", data.windSpeed);
+    }
+    // Function to add a marker to the map
+    function addMarker(lat, lon) {
+        if (marker) {
+            map.removeLayer(marker); // Remove existing marker if any
+        }
+        marker = L.marker([lat, lon]).addTo(map);
     }
 
     searchBtn.addEventListener('click', async () => {
@@ -74,15 +88,8 @@ document.addEventListener('DOMContentLoaded', () => {
             alert(`Error: ${error.message}`);
         }
     });
-    // Initialize the map
-    const map = L.map('map').setView([51.505, -0.09], 13);
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        maxZoom: 19,
-        attribution: '© OpenStreetMap contributors'
-    }).addTo(map);
-
     // Map click event
-    map.on('click', async function(e) {
+    map.on('click', async function (e) {
         try {
             const response = await fetch('http://localhost:3000/weatherByCoords', {
                 method: 'POST',
@@ -114,6 +121,9 @@ document.addEventListener('DOMContentLoaded', () => {
             humidityElement.innerText = `${data.humidity}%`;
             pressureElement.innerText = `${data.pressure} hPa`;
             rainVolumeElement.innerText = `${data.rainVolume} millimeter`;
+
+            // Add a marker to the selected location
+            addMarker(e.latlng.lat, e.latlng.lng);
         } catch (error) {
             console.error(error);
             alert(`Error: ${error.message}`);
