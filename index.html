@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <title>Weather App Project JavaScript | CodingNepal</title>
-    <link rel="stylesheet" href="../css/indexStyle.css">
+    <link rel="stylesheet" href="css/indexStyle.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Leaflet CSS -->
@@ -19,7 +19,7 @@
         </label>
         <button class="search-btn">Search</button>
         <div class="separator"></div>
-        <button class="location-btn">Use Current Location</button>
+        <button id="location-btn" class="location-btn">Use Current Location</button>
         <!-- Map Container -->
         <div id="map" style="height: 300px; margin-top: 20px;"></div>
     </div>
@@ -170,6 +170,51 @@
             } catch (error) {
                 console.error(error);
                 alert(`Error: ${error.message}`);
+            }
+        });
+        const locationBtn = document.getElementById('location-btn');
+
+        locationBtn.addEventListener('click', () => {
+            // Check if geolocation is available in the user's browser
+            if ('geolocation' in navigator) {
+                // Get the user's current position
+                navigator.geolocation.getCurrentPosition(async (position) => {
+                    const lat = position.coords.latitude;
+                    const lon = position.coords.longitude;
+
+                    try {
+                        const response = await fetch('http://localhost:3000/weatherByCoords', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                            },
+                            body: JSON.stringify({ lat, lon }),
+                        });
+
+                        if (!response.ok) {
+                            throw new Error(`HTTP error! Status: ${response.status}`);
+                        }
+
+                        const data = await response.json();
+                        // Update UI with the received weather data
+                        cityNameElement.innerText = data.cityName;
+                        weatherDescriptionElement.innerText = data.description;
+                        temperatureElement.innerText = `${data.temperature}°C`;
+                        feelsLikeElement.innerText = `${data.feelsLike}°C`;
+                        windSpeedElement.innerText = `${data.windSpeed} M/S`;
+                        humidityElement.innerText = `${data.humidity}%`;
+                        pressureElement.innerText = `${data.pressure} hPa`;
+                        rainVolumeElement.innerText = `${data.rainVolume} millimeter`;
+                    } catch (error) {
+                        console.error(error);
+                        alert(`Error: ${error.message}`);
+                    }
+                }, (error) => {
+                    console.error('Geolocation error:', error);
+                    alert(`Error: ${error.message}`);
+                });
+            } else {
+                alert('Geolocation is not available in your browser.');
             }
         });
     });
